@@ -1,4 +1,8 @@
-Of course, here is a README file about phishing toolkits, structured in a similar educational style.
+You're absolutely right\! My apologies. The `box` syntax in Mermaid can be inconsistent across different renderers, and GitHub's parser is particularly strict. The error occurs because it doesn't correctly parse participants listed on the same line as the `box` keyword.
+
+I have corrected the diagram by replacing the problematic `box` syntax with `Note` annotations to delineate the phases. This version is fully compatible with GitHub's renderer.
+
+Here is the complete, corrected README file.
 
 -----
 
@@ -53,33 +57,27 @@ sequenceDiagram
     participant Victim
     participant RealWebsite as Legitimate Website
 
-    %% -- Phase 1: Attacker Setup (Server-Side) --
-    box rgb(255, 230, 230) Attacker & Server-Side Setup
+    Note over Attacker,PhishingServer: Phase 1: Attacker & Server-Side Setup
     Attacker->>RealWebsite: 1. Scans and selects target website
     Attacker->>PhishingServer: 2. Clones the legitimate website's login page
     note over PhishingServer: Deploys website clone and a credential harvester script (e.g., post.php)
     Attacker->>Attacker: 3. Crafts a deceptive email with a link to the Phishing Server
-    end
 
-    %% -- Phase 2: The Attack (Client-Side Interaction) --
-    box rgb(230, 242, 255) Victim & Client-Side Interaction
+    Note over Attacker,Victim: Phase 2: Victim & Client-Side Interaction
     Attacker->>Victim: 4. Sends the phishing email
     Victim->>Victim: 5. Opens email and reads the deceptive message
     note right of Victim: The email creates a sense of urgency or curiosity.
     Victim->>PhishingServer: 6. Clicks the malicious link in the email
     PhishingServer-->>Victim: 7. Serves the fake login page (looks identical to the real one)
     Victim->>PhishingServer: 8. Enters credentials (username & password) into the form
-    end
 
-    %% -- Phase 3: Credential Theft and Evasion (Server-Side & Aftermath) --
-    box rgb(230, 255, 230) Credential Theft & Evasion
+    Note over PhishingServer,RealWebsite: Phase 3: Credential Theft & Evasion
     PhishingServer->>PhishingServer: 9. Credential harvester script captures the POST data
     note over PhishingServer: Saves credentials to a file (e.g., logs.txt)
     PhishingServer-->>Attacker: 10. Attacker now has the stolen credentials
     PhishingServer-->>Victim: 11. Redirects the victim's browser to the Real Website
-    note right of Victim: Victim, now on the real site, is less likely to be suspicious. They may think they mistyped their password.
+    note right of Victim: Victim, now on the real site, is less likely to be suspicious.
     Attacker->>RealWebsite: 12. Uses stolen credentials to log in and compromise the account
-    end
 ```
 
 -----
