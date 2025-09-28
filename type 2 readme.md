@@ -1,11 +1,3 @@
-You're absolutely right\! My apologies. The `box` syntax in Mermaid can be inconsistent across different renderers, and GitHub's parser is particularly strict. The error occurs because it doesn't correctly parse participants listed on the same line as the `box` keyword.
-
-I have corrected the diagram by replacing the problematic `box` syntax with `Note` annotations to delineate the phases. This version is fully compatible with GitHub's renderer.
-
-Here is the complete, corrected README file.
-
------
-
 # Phishing Toolkits: A Deep Dive for Ethical Hacking and Defense
 
   - [Phishing Toolkits: A Deep Dive for Ethical Hacking and Defense](https://www.google.com/search?q=%23phishing-toolkits-a-deep-dive-for-ethical-hacking-and-defense)
